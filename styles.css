@@ -1,0 +1,44 @@
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #111827; /* Dark background */
+    color: #d1d5db; /* Light gray text */
+}
+
+/* Glassmorphism Effect for Sections */
+.glass-effect {
+    background: rgba(31, 41, 55, 0.5); /* Semi-transparent dark gray */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Section Title Styling */
+.section-title {
+    font-weight: 900;
+    font-size: 2.25rem; /* 36px */
+    letter-spacing: -0.05em;
+    background: -webkit-linear-gradient(45deg, #38bdf8, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Interactive Hover Effect for Toolkit Items */
+.tool-item {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.tool-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.2), 0 4px 6px -2px rgba(56, 189, 248, 0.1);
+}
+
+/* Styling and Hover Effect for Stat Images */
+.stat-img {
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-img:hover {
+    transform: scale(1.03);
+}
