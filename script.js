@@ -23,4 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s, transform 0.6s';
         observer.observe(el);
     });
+    
+    // Theme dropdown integration for all pages
+    const themeDropdown = document.getElementById('themeDropdown');
+    if (themeDropdown) {
+        const themeClasses = [
+            'theme-virtual-reality',
+            'theme-quantum-flux',
+            'theme-electric-city',
+            'theme-glitch-vibes'
+        ];
+        themeDropdown.addEventListener('change', function() {
+            themeClasses.forEach(cls => document.body.classList.remove(cls));
+            document.body.classList.add('theme-' + themeDropdown.value);
+        });
+    }
 });
