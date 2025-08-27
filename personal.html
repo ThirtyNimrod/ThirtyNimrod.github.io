@@ -3,32 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divya Pratap Singh Bhadoria | Personal Profile</title>
-    <meta name="description" content="Personal fun profile of Divya - Gaming, Music, Reviews and more!">
+    <title>30.NIMROD | Personal NetRunner Profile</title>
+    <meta name="description" content="Personal netrunner profile of 30.NIMROD - Gaming, Music, and Night City adventures">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cyber-yellow: #fcff00;
-            --cyber-pink: #ff00ff;
-            --cyber-blue: #00ffff;
-            --cyber-purple: #9400d3;
-            --cyber-green: #00ff00;
-            --cyber-red: #ff0040;
-            --cyber-dark: #0a0a0a;
-            --cyber-darker: #050505;
+            /* Default: Virtual Reality */
+            --bg1: #0a0a0a;
+            --bg2: #1a1a1e;
+            --accent-yellow: #FFEA00;
+            --accent-blue: #00BFFF;
+            --accent-magenta: #FF007A;
+            --accent-purple: #8E44AD;
+            --accent-deepmagenta: #D5006D;
+            --accent-cyan: #00FFFF;
+            --accent-red: #FF4500;
+            --accent-teal: #00BFAE;
+            --accent-charcoal: #4A4A4A;
+            --accent-brightyellow: #FFD600;
+            --accent-deepviolet: #8C1BFF;
+            --accent-navy: #1B1B2A;
+            --accent-neongreen: #00FFB3;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--cyber-dark), var(--cyber-darker));
-            color: var(--cyber-blue);
+            font-family: 'Source Code Pro', monospace;
+            background: linear-gradient(135deg, var(--bg1), var(--bg2));
+            color: var(--accent-blue);
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
+            transition: background 0.5s;
         }
 
         .cyber-font {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Scan lines effect */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 999;
         }
 
         /* Cyberpunk glitch effect */
@@ -96,6 +131,14 @@
                 inset 0 0 5px var(--cyber-pink),
                 0 0 20px var(--cyber-pink);
             animation: neon-pulse 2s infinite alternate;
+            clip-path: polygon(
+                0 10px, 
+                10px 0, 
+                100% 0, 
+                100% calc(100% - 10px), 
+                calc(100% - 10px) 100%, 
+                0 100%
+            );
         }
 
         @keyframes neon-pulse {
@@ -116,11 +159,18 @@
         .cyber-card {
             background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
             border: 1px solid var(--cyber-blue);
-            border-radius: 10px;
             padding: 1.5rem;
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
+            clip-path: polygon(
+                0 5px, 
+                5px 0, 
+                100% 0, 
+                100% calc(100% - 5px), 
+                calc(100% - 5px) 100%, 
+                0 100%
+            );
         }
 
         .cyber-card:before {
@@ -139,23 +189,32 @@
         }
 
         .cyber-button {
-            background: linear-gradient(45deg, var(--cyber-purple), var(--cyber-pink));
-            border: none;
-            padding: 12px 24px;
-            color: white;
+            background: linear-gradient(45deg, var(--cyber-dark), var(--cyber-gray));
+            border: 2px solid var(--cyber-yellow);
+            color: var(--cyber-yellow);
+            font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 10px 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
             transition: all 0.3s;
+            clip-path: polygon(
+                0 5px, 
+                5px 0, 
+                100% 0, 
+                100% calc(100% - 5px), 
+                calc(100% - 5px) 100%, 
+                0 100%
+            );
         }
 
         .cyber-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
+            box-shadow: 0 0 15px var(--cyber-yellow);
+            background: var(--cyber-yellow);
+            color: var(--cyber-dark);
         }
 
         .cyber-button:before {
@@ -181,10 +240,23 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: grid-move 20s linear infinite;
+            z-index: -1;
+        }
+
+        /* Hexagonal grid overlay */
+        .hex-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('artwork/hex-grid.png');
+            background-size: 300px 300px;
+            opacity: 0.1;
             z-index: -1;
         }
 
@@ -205,6 +277,15 @@
             text-transform: uppercase;
             transition: all 0.3s;
             position: relative;
+            font-family: 'Rajdhani', sans-serif;
+            clip-path: polygon(
+                0 5px, 
+                5px 0, 
+                100% 0, 
+                100% calc(100% - 5px), 
+                calc(100% - 5px) 100%, 
+                0 100%
+            );
         }
 
         .cyber-tab.active,
@@ -216,29 +297,43 @@
 
         /* Gaming section styles */
         .game-card {
-            background: linear-gradient(145deg, rgba(148, 0, 211, 0.2), rgba(255, 0, 128, 0.2));
+            background: linear-gradient(145deg, rgba(10, 10, 14, 0.8), rgba(20, 20, 24, 0.8));
             border: 1px solid var(--cyber-purple);
-            border-radius: 10px;
             padding: 1rem;
             transition: all 0.3s;
+            clip-path: polygon(
+                0 5px, 
+                5px 0, 
+                100% 0, 
+                100% calc(100% - 5px), 
+                calc(100% - 5px) 100%, 
+                0 100%
+            );
         }
 
         .game-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(148, 0, 211, 0.3);
         }
 
         /* Music section styles */
         .music-card {
-            background: linear-gradient(145deg, rgba(0, 255, 0, 0.2), rgba(0, 255, 255, 0.2));
+            background: linear-gradient(145deg, rgba(10, 10, 14, 0.8), rgba(20, 20, 24, 0.8));
             border: 1px solid var(--cyber-green);
-            border-radius: 10px;
             padding: 1rem;
             transition: all 0.3s;
+            clip-path: polygon(
+                0 5px, 
+                5px 0, 
+                100% 0, 
+                100% calc(100% - 5px), 
+                calc(100% - 5px) 100%, 
+                0 100%
+            );
         }
 
         .music-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 255, 0, 0.3);
         }
 
@@ -253,7 +348,7 @@
 
         ::-webkit-scrollbar-thumb {
             background: var(--cyber-pink);
-            border-radius: 4px;
+            border-radius: 0;
         }
 
         ::-webkit-scrollbar-thumb:hover {
@@ -266,31 +361,103 @@
             padding: 12px;
             margin: 8px;
             border: 2px solid var(--cyber-yellow);
-            border-radius: 50%;
             color: var(--cyber-yellow);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
         }
 
         .social-link:hover {
             color: var(--cyber-dark);
             background: var(--cyber-yellow);
             box-shadow: 0 0 20px var(--cyber-yellow);
-            transform: rotate(360deg);
+            transform: rotate(45deg);
+        }
+        
+        .social-link svg {
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover svg {
+            transform: rotate(-45deg);
+        }
+
+        /* Data display elements */
+        .data-display {
+            border-left: 2px solid var(--cyber-yellow);
+            padding-left: 1rem;
+            margin: 0.5rem 0;
+            position: relative;
+        }
+        
+        .data-display:before {
+            content: ">";
+            position: absolute;
+            left: -1.2rem;
+            color: var(--cyber-yellow);
+        }
+
+        /* Theme selector dropdown styles */
+        .theme-selector {
+            position: fixed;
+            top: 18px;
+            right: 32px;
+            z-index: 1000;
+            background: rgba(20,20,20,0.95);
+            border: 2px solid var(--accent-yellow);
+            box-shadow: 0 0 12px var(--accent-yellow);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-family: 'Rajdhani', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        .theme-label {
+            color: var(--accent-yellow);
+            font-size: 0.95rem;
+            margin-right: 8px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .theme-dropdown {
+            background: var(--bg2);
+            color: var(--accent-yellow);
+            border: 1.5px solid var(--accent-yellow);
+            border-radius: 4px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.95rem;
+            padding: 2px 8px;
+            outline: none;
+            box-shadow: 0 0 6px var(--accent-yellow);
+            transition: background 0.2s, color 0.2s;
+        }
+        .theme-dropdown:focus {
+            background: var(--accent-yellow);
+            color: #222;
         }
     </style>
 </head>
-<body>
+<body class="theme-virtual-reality">
     <div class="cyber-grid"></div>
-    
+    <div class="hex-grid"></div>
+    <!-- Theme Selector (dropdown version) -->
+    <div class="theme-selector">
+        <span class="theme-label">Theme:</span>
+        <select class="theme-dropdown" id="themeDropdown">
+            <option value="virtual-reality" selected>Virtual Reality</option>
+            <option value="quantum-flux">Quantum Flux</option>
+            <option value="electric-city">Electric City</option>
+            <option value="glitch-vibes">Glitch Vibes</option>
+        </select>
+    </div>
     <!-- Navigation -->
     <nav class="relative z-50 p-4">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold cyber-font" style="color: var(--cyber-yellow);">← BACK TO REALITY</a>
+            <a href="index.html" class="text-2xl font-bold cyber-font" style="color: var(--cyber-yellow);">EXIT_TO_MEATSPACE</a>
             <div class="flex items-center space-x-4">
-                <span class="cyber-font text-sm" style="color: var(--cyber-pink);">WELCOME TO THE NET</span>
-                <a href="enterprise.html" class="cyber-button text-sm">CORPORATE MODE</a>
+                <span class="cyber-font text-sm" style="color: var(--cyber-pink);">NETRUNNER_STATUS: ACTIVE</span>
+                <a href="enterprise.html" class="cyber-button text-sm">CORPO_MODE</a>
             </div>
         </div>
     </nav>
@@ -298,20 +465,20 @@
     <div class="max-w-6xl mx-auto px-4 py-8">
         <!-- Header -->
         <header class="text-center mb-12">
-            <h1 class="glitch cyber-font mb-4" data-text="DIVYA_PRATAP">DIVYA_PRATAP</h1>
-            <p class="text-xl cyber-font" style="color: var(--cyber-pink);">NETRUNNER | GAMER | MUSIC_ADDICT</p>
-            <p class="text-lg mt-2" style="color: var(--cyber-green);">JACKING INTO THE DIGITAL REALM...</p>
+            <h1 class="glitch cyber-font mb-4" data-text="30.NIMROD">30.NIMROD</h1>
+            <p class="text-xl cyber-font" style="color: var(--cyber-pink);">NETRUNNER | MERC | CHROME_JUNKIE</p>
+            <p class="text-lg mt-2" style="color: var(--cyber-green);">CONNECTION_ESTABLISHED // WELCOME, CHOOM</p>
         </header>
 
         <!-- Profile Card -->
         <div class="cyber-card neon-border mb-8 text-center">
-            <div class="w-40 h-40 mx-auto mb-6 border-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-6xl" style="border-color: var(--cyber-yellow);">
-                🎮
+            <div class="w-40 h-40 mx-auto mb-6 overflow-hidden" style="border: 3px solid var(--cyber-yellow); clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);">
+                <img src="artwork/profile-hex.jpg" alt="NetRunner Profile" onerror="this.src='https://placehold.co/400x400/9400d3/fcee0a?text=30.NIMROD'" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
-            <h2 class="text-2xl cyber-font mb-4" style="color: var(--cyber-yellow);">PERSONAL_PROFILE.EXE</h2>
+            <h2 class="text-2xl cyber-font mb-4" style="color: var(--cyber-yellow);">PERSONAL_MATRIX.EXE</h2>
             <p class="text-lg mb-6" style="color: var(--cyber-blue);">
-                When I'm not optimizing enterprise AI systems, I'm diving deep into digital worlds, 
-                hunting achievements, and vibing to synthwave beats. Welcome to my digital playground!
+                When I'm not hacking corpo databases, I'm deep in the Net, 
+                hunting digital ghosts and riding the datastream. Welcome to my digital domain, choom.
             </p>
             
             <!-- Social Links -->
@@ -332,14 +499,24 @@
                     </svg>
                 </a>
             </div>
+            
+            <div class="data-display text-left">
+                <p style="color: var(--cyber-yellow);">STREET_CRED: <span style="color: var(--cyber-blue);">LEGENDARY</span></p>
+            </div>
+            <div class="data-display text-left">
+                <p style="color: var(--cyber-yellow);">DECK_STATUS: <span style="color: var(--cyber-green);">OPERATIONAL</span></p>
+            </div>
+            <div class="data-display text-left">
+                <p style="color: var(--cyber-yellow);">CHROME_LEVEL: <span style="color: var(--cyber-pink);">MAXED_OUT</span></p>
+            </div>
         </div>
 
         <!-- Tabs -->
         <div class="text-center mb-8">
-            <button class="cyber-tab active" data-tab="gaming">GAMING_HUB</button>
-            <button class="cyber-tab" data-tab="music">AUDIO_VIBES</button>
-            <button class="cyber-tab" data-tab="reviews">GAME_REVIEWS</button>
-            <button class="cyber-tab" data-tab="stream">LIVE_STREAM</button>
+            <button class="cyber-tab active" data-tab="gaming">CYBERSPACE_EXPLOITS</button>
+            <button class="cyber-tab" data-tab="music">BRAINDANCE_TUNES</button>
+            <button class="cyber-tab" data-tab="reviews">DATA_SHARDS</button>
+            <button class="cyber-tab" data-tab="stream">LIVE_FEED</button>
         </div>
 
         <!-- Tab Content -->
@@ -349,41 +526,41 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                     <!-- Steam Stats -->
                     <div class="cyber-card">
-                        <h3 class="text-2xl cyber-font mb-4" style="color: var(--cyber-purple);">STEAM_PROFILE.DAT</h3>
+                        <h3 class="text-2xl cyber-font mb-4" style="color: var(--cyber-purple);">NET_PRESENCE.DAT</h3>
                         <div class="game-card">
                             <img src="https://steam-stat.vercel.app/api?profileName=thirtynimrod" 
                                  alt="Steam Profile Stats" 
-                                 class="w-full rounded-lg"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/400x200/9400d3/ffffff?text=STEAM+DATA+CORRUPTED';">
+                                 class="w-full"
+                                 onerror="this.onerror=null;this.src='artwork/steam-stats.jpg';">
                         </div>
                     </div>
 
                     <!-- Favorite Games -->
                     <div class="cyber-card">
-                        <h3 class="text-2xl cyber-font mb-4" style="color: var(--cyber-red);">FAVORITE_GAMES.EXE</h3>
+                        <h3 class="text-2xl cyber-font mb-4" style="color: var(--cyber-red);">BRAINDANCE_COLLECTION.EXE</h3>
                         <div class="space-y-4">
                             <div class="game-card">
                                 <h4 class="font-bold cyber-font" style="color: var(--cyber-yellow);">CYBERPUNK 2077</h4>
-                                <p class="text-sm">The ultimate cyberpunk experience. Night City awaits, choom!</p>
+                                <p class="text-sm">Welcome to Night City, choom. The ultimate corpo-free experience.</p>
                                 <div class="flex items-center mt-2">
-                                    <span class="text-xs bg-purple-600 px-2 py-1 rounded">RPG</span>
-                                    <span class="text-xs bg-pink-600 px-2 py-1 rounded ml-2">Open World</span>
+                                    <span class="text-xs bg-purple-600 px-2 py-1 rounded-none">RPG</span>
+                                    <span class="text-xs bg-pink-600 px-2 py-1 rounded-none ml-2">Open World</span>
                                 </div>
                             </div>
                             <div class="game-card">
                                 <h4 class="font-bold cyber-font" style="color: var(--cyber-yellow);">THE WITCHER 3</h4>
-                                <p class="text-sm">Geralt's legendary adventure through the Northern Kingdoms.</p>
+                                <p class="text-sm">Pre-chrome era adventures. Still preem as they come.</p>
                                 <div class="flex items-center mt-2">
-                                    <span class="text-xs bg-purple-600 px-2 py-1 rounded">RPG</span>
-                                    <span class="text-xs bg-green-600 px-2 py-1 rounded ml-2">Fantasy</span>
+                                    <span class="text-xs bg-purple-600 px-2 py-1 rounded-none">RPG</span>
+                                    <span class="text-xs bg-green-600 px-2 py-1 rounded-none ml-2">Fantasy</span>
                                 </div>
                             </div>
                             <div class="game-card">
                                 <h4 class="font-bold cyber-font" style="color: var(--cyber-yellow);">APEX LEGENDS</h4>
-                                <p class="text-sm">Battle royale mayhem in the Outlands.</p>
+                                <p class="text-sm">Pure combat sim. Jack in, load up, flatline the enemy.</p>
                                 <div class="flex items-center mt-2">
-                                    <span class="text-xs bg-red-600 px-2 py-1 rounded">BR</span>
-                                    <span class="text-xs bg-blue-600 px-2 py-1 rounded ml-2">FPS</span>
+                                    <span class="text-xs bg-red-600 px-2 py-1 rounded-none">BR</span>
+                                    <span class="text-xs bg-blue-600 px-2 py-1 rounded-none ml-2">FPS</span>
                                 </div>
                             </div>
                         </div>
@@ -396,38 +573,38 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                     <!-- Spotify Stats -->
                     <div class="cyber-card">
-                        <h3 class="text-2xl cyber-font mb-4" style="color: var(--cyber-green);">SPOTIFY_MATRIX.MP3</h3>
+                        <h3 class="text-2xl cyber-font mb-4" style="color: var(--cyber-green);">AUDIO_IMPLANT.MP3</h3>
                         <div class="music-card">
                             <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=iamdivyapratap&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=true&bar_color=53b14f&bar_color_cover=false" 
                                  alt="Spotify Profile Stats" 
-                                 class="w-full rounded-lg"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/400x300/00ff00/000000?text=AUDIO+FEED+OFFLINE';">
+                                 class="w-full"
+                                 onerror="this.onerror=null;this.src='artwork/spotify-data.jpg';">
                         </div>
                     </div>
 
                     <!-- Music Preferences -->
                     <div class="cyber-card">
-                        <h3 class="text-2xl cyber-font mb-4" style="color: var(--cyber-blue);">AUDIO_PREFERENCES.DAT</h3>
+                        <h3 class="text-2xl cyber-font mb-4" style="color: var(--cyber-blue);">NEURAL_FREQUENCIES.DAT</h3>
                         <div class="space-y-4">
                             <div class="music-card">
                                 <h4 class="font-bold cyber-font" style="color: var(--cyber-pink);">SYNTHWAVE</h4>
-                                <p class="text-sm">Perfect for coding sessions and night city drives.</p>
-                                <div class="w-full bg-gray-800 rounded-full h-2 mt-2">
-                                    <div class="bg-gradient-to-r from-pink-500 to-purple-500 h-2 rounded-full" style="width: 95%"></div>
+                                <p class="text-sm">Sonic boost for netrunning and night drives through NC.</p>
+                                <div class="w-full bg-gray-800 rounded-none h-2 mt-2">
+                                    <div class="bg-gradient-to-r from-pink-500 to-purple-500 h-2" style="width: 95%"></div>
                                 </div>
                             </div>
                             <div class="music-card">
                                 <h4 class="font-bold cyber-font" style="color: var(--cyber-pink);">ELECTRONIC</h4>
-                                <p class="text-sm">High-energy beats for gaming marathons.</p>
-                                <div class="w-full bg-gray-800 rounded-full h-2 mt-2">
-                                    <div class="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full" style="width: 88%"></div>
+                                <p class="text-sm">BPM matched to cyberware heart implants.</p>
+                                <div class="w-full bg-gray-800 rounded-none h-2 mt-2">
+                                    <div class="bg-gradient-to-r from-blue-500 to-green-500 h-2" style="width: 88%"></div>
                                 </div>
                             </div>
                             <div class="music-card">
-                                <h4 class="font-bold cyber-font" style="color: var(--cyber-pink);">CYBERPUNK OST</h4>
-                                <p class="text-sm">Official soundtracks from favorite games.</p>
-                                <div class="w-full bg-gray-800 rounded-full h-2 mt-2">
-                                    <div class="bg-gradient-to-r from-yellow-500 to-red-500 h-2 rounded-full" style="width: 92%"></div>
+                                <h4 class="font-bold cyber-font" style="color: var(--cyber-pink);">NIGHT CITY ROCK</h4>
+                                <p class="text-sm">SAMURAI, chrome, and the rebel spirit of 2077.</p>
+                                <div class="w-full bg-gray-800 rounded-none h-2 mt-2">
+                                    <div class="bg-gradient-to-r from-yellow-500 to-red-500 h-2" style="width: 92%"></div>
                                 </div>
                             </div>
                         </div>
@@ -438,13 +615,13 @@
             <!-- Reviews Tab -->
             <div id="reviews-tab" class="tab-content hidden">
                 <div class="cyber-card">
-                    <h3 class="text-2xl cyber-font mb-6 text-center" style="color: var(--cyber-yellow);">GAME_REVIEWS.TXT</h3>
+                    <h3 class="text-2xl cyber-font mb-6 text-center" style="color: var(--cyber-yellow);">DATA_SHARDS.TXT</h3>
                     <div id="personal-articles-container" class="space-y-4">
                         <!-- Reviews will be loaded here -->
                         <div class="text-center py-8" style="color: var(--cyber-blue);">
-                            <p class="cyber-font">LOADING REVIEW DATABASE...</p>
+                            <p class="cyber-font">ACCESSING_DATABASE...</p>
                             <div class="mt-4">
-                                <div class="inline-block w-8 h-8 border-4 border-t-transparent rounded-full animate-spin" style="border-color: var(--cyber-pink) transparent var(--cyber-pink) var(--cyber-pink);"></div>
+                                <div class="inline-block w-8 h-8 border-4 border-t-transparent" style="border-color: var(--cyber-pink) transparent var(--cyber-pink) var(--cyber-pink); animation: spin 1s linear infinite;"></div>
                             </div>
                         </div>
                     </div>
@@ -454,39 +631,39 @@
             <!-- Stream Tab -->
             <div id="stream-tab" class="tab-content hidden">
                 <div class="cyber-card text-center">
-                    <h3 class="text-3xl cyber-font mb-6" style="color: var(--cyber-red);">LIVE_STREAM.EXE</h3>
+                    <h3 class="text-3xl cyber-font mb-6" style="color: var(--cyber-red);">BRAINDANCE_STREAM.EXE</h3>
                     <div class="mb-8">
-                        <div class="w-32 h-32 mx-auto bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center text-6xl mb-4">
-                            🎥
+                        <div class="w-32 h-32 mx-auto border-4 flex items-center justify-center text-6xl mb-4" style="border-color: var(--cyber-red); clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);">
+                            <img src="artwork/bd-icon.jpg" alt="BD Icon" onerror="this.src='https://placehold.co/200x200/ff3131/fcee0a?text=BD'">
                         </div>
                         <p class="text-xl cyber-font mb-4" style="color: var(--cyber-blue);">STREAM_STATUS: OFFLINE</p>
                         <p class="mb-6" style="color: var(--cyber-green);">
-                            Join me for epic gaming sessions, AI development streams, and tech talks!
+                            Jack in for elite combat, corpo takedowns and tech deep dives!
                         </p>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="cyber-card" style="border-color: var(--cyber-red);">
-                            <h4 class="cyber-font font-bold mb-2" style="color: var(--cyber-red);">UPCOMING_STREAMS</h4>
+                            <h4 class="cyber-font font-bold mb-2" style="color: var(--cyber-red);">UPCOMING_FEEDS</h4>
                             <ul class="text-left space-y-2 text-sm">
-                                <li>🎮 Cyberpunk 2077 Phantom Liberty</li>
-                                <li>🤖 AI Agent Development Live</li>
-                                <li>🎵 Music + Coding Sessions</li>
-                                <li>🏆 Achievement Hunting</li>
+                                <li>🎮 Phantom Liberty Mercenary Run</li>
+                                <li>🤖 ICE Breaking Live Demo</li>
+                                <li>🎵 Night City After Hours</li>
+                                <li>🏆 Legendary Gear Hunt</li>
                             </ul>
                         </div>
                         <div class="cyber-card" style="border-color: var(--cyber-purple);">
-                            <h4 class="cyber-font font-bold mb-2" style="color: var(--cyber-purple);">STREAM_SETUP</h4>
+                            <h4 class="cyber-font font-bold mb-2" style="color: var(--cyber-purple);">CYBERDECK_SPECS</h4>
                             <ul class="text-left space-y-2 text-sm">
-                                <li>💻 OBS Studio</li>
-                                <li>🎤 Professional Audio</li>
-                                <li>📹 1080p 60fps</li>
-                                <li>💬 Interactive Chat</li>
+                                <li>💻 Military-Grade Deck</li>
+                                <li>🎤 Kiroshi Audio Implants</li>
+                                <li>📹 4K Neural Capture</li>
+                                <li>💬 Real-time NET Chat</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <button class="cyber-button mt-6 text-lg">FOLLOW FOR NOTIFICATIONS</button>
+                    <button class="cyber-button mt-6 text-lg">JACK_IN</button>
                 </div>
             </div>
         </div>
@@ -537,13 +714,13 @@
                                 </a>
                             </h4>
                             <p class="text-sm mb-2" style="color: var(--cyber-pink);">
-                                PUBLISHED: ${new Date(item.pubDate).toLocaleDateString().toUpperCase()}
+                                TIMESTAMP: ${new Date(item.pubDate).toLocaleDateString().toUpperCase()}
                             </p>
                             <p class="text-sm" style="color: var(--cyber-blue);">
                                 ${item.description.replace(/<[^>]*>/g, '').substring(0, 120)}...
                             </p>
                             <div class="mt-3">
-                                <a href="${item.link}" target="_blank" class="cyber-button text-xs">READ_FULL_REVIEW</a>
+                                <a href="${item.link}" target="_blank" class="cyber-button text-xs">ACCESS_DATA</a>
                             </div>
                         `;
                         container.appendChild(reviewDiv);
@@ -551,16 +728,16 @@
                 } else {
                     container.innerHTML = `
                         <div class="text-center py-8" style="color: var(--cyber-red);">
-                            <p class="cyber-font">DATABASE_ERROR: No reviews found.</p>
-                            <p class="text-sm mt-2">Update the Medium RSS URL in the script to load articles.</p>
+                            <p class="cyber-font">CONNECTION_ERROR: DATA CORRUPTED</p>
+                            <p class="text-sm mt-2">Run ICEbreaker.exe to access the shard database.</p>
                         </div>
                     `;
                 }
             } catch (error) {
                 document.getElementById('personal-articles-container').innerHTML = `
                     <div class="text-center py-8" style="color: var(--cyber-red);">
-                        <p class="cyber-font">CONNECTION_FAILED</p>
-                        <p class="text-sm mt-2">Unable to establish connection to review database.</p>
+                        <p class="cyber-font">NETRUNNER_BLOCKED</p>
+                        <p class="text-sm mt-2">Corporate ICE detected. Rerouting connection...</p>
                     </div>
                 `;
             }
@@ -602,6 +779,13 @@
                     }, 100);
                 }
             }, 3000);
+
+            // Theme switching logic (dropdown)
+            const themeDropdown = document.getElementById('themeDropdown');
+            themeDropdown.addEventListener('change', function() {
+                document.body.classList.remove('theme-virtual-reality', 'theme-quantum-flux', 'theme-electric-city', 'theme-glitch-vibes');
+                document.body.classList.add('theme-' + themeDropdown.value);
+            });
         });
 
         // Add CSS for ripple animation
@@ -612,6 +796,10 @@
                     transform: scale(4);
                     opacity: 0;
                 }
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
             }
         `;
         document.head.append(style);
