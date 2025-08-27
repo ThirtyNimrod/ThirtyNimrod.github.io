@@ -101,3 +101,38 @@ nav {
     font-size: 0.9rem;
     color: #a1a1aa;
 }
+
+/* Theme backgrounds and accents for integration */
+body.theme-virtual-reality {
+    --bg1: #0a0a0a;
+    --bg2: #1a1a1e;
+    --accent-yellow: #FFEA00;
+    --accent-blue: #00BFFF;
+    --accent-magenta: #FF007A;
+    --accent-purple: #8E44AD;
+    --accent-deepmagenta: #D5006D;
+    color: var(--accent-blue);
+}
+body.theme-quantum-flux {
+    --bg1: #4A4A4A;
+    --bg2: #121212;
+    --accent-red: #FF3D00;
+    --accent-teal: #00BFAE;
+    --accent-brightyellow: #FFD600;
+    --accent-deepviolet: #8C1BFF;
+    color: var(--accent-teal);
+}
+body.theme-electric-city {
+    --bg1: #1B1B2A;
+    --bg2: #121212;
+    --accent-magenta: #FF007A;
+    --accent-neongreen: #00FFB3;
+    color: var(--accent-neongreen);
+}
+body.theme-glitch-vibes {
+    --bg1: #0a0a0a;
+    --bg2: #00FFFF;
+    --accent-cyan: #00FFFF;
+    --accent-red: #FF4500;
+    color: var(--accent-cyan);
+}
