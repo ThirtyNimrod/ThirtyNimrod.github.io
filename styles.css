@@ -42,3 +42,62 @@ body {
 .stat-img:hover {
     transform: scale(1.03);
 }
+
+/* Navigation Bar Styles */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #d1d5db;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #38bdf8;
+}
+
+.nav-link.active {
+    color: #818cf8;
+    font-weight: 700;
+}
+
+/* Profile Switcher Styles */
+.profile-switcher button {
+    transition: background 0.2s, color 0.2s;
+    outline: none;
+}
+
+.profile-switcher .active {
+    background: #38bdf8;
+    color: #fff;
+}
+
+/* Article Card Styles */
+.article-card {
+    background: rgba(31,41,55,0.7);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: box-shadow 0.2s;
+}
+
+.article-card:hover {
+    box-shadow: 0 4px 16px rgba(56,189,248,0.15);
+}
+
+.article-title {
+    font-weight: 700;
+    color: #38bdf8;
+    font-size: 1.1rem;
+}
+
+.article-meta {
+    font-size: 0.9rem;
+    color: #a1a1aa;
+}
