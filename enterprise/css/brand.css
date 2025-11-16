@@ -1,0 +1,57 @@
+/* Accenture Brand Colors and Typography */
+/* ===================================== */
+
+/* CSS Custom Properties for Accenture Brand Colors */
+:root {
+    /* Purple Spectrum */
+    --accenture-darkest-purple: #460073;
+    --accenture-dark-purple: #7500C0;
+    --accenture-core-purple: #A100FF;
+    --accenture-light-purple: #C2A3FF;
+    --accenture-lightest-purple: #E6DCFF;
+
+    /* Neutrals */
+    --accenture-black: #000000;
+    --accenture-white: #FFFFFF;
+    --accenture-dark-gray: #818180;
+    --accenture-medium-gray: #CFCFCF;
+    --accenture-light-gray: #F1F1EF;
+
+    /* Secondary Colors */
+    --accenture-pink: #FF50A0;
+    --accenture-blue: #224BFF;
+    --accenture-aqua: #05F2DB;
+}
+
+/* Base Typography */
+body {
+    font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--accenture-white);
+    color: var(--accenture-black);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Dark Mode Base */
+[data-theme="dark"] body {
+    background-color: var(--accenture-black);
+    color: var(--accenture-white);
+}
+
+/* Typography Classes */
+.accenture-heading {
+    font-family: 'GT America', serif;
+    font-weight: 100;
+    letter-spacing: -0.02em;
+}
+
+/* Navigation Styling */
+nav {
+    background: var(--accenture-white);
+    border-bottom: 1px solid var(--accenture-light-gray);
+}
+
+[data-theme="dark"] nav {
+    background: var(--accenture-black);
+    border-bottom: 1px solid var(--accenture-dark-gray);
+}
