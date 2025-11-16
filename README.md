@@ -102,10 +102,12 @@ This portfolio website includes:
 ThirtyNimrod.github.io/
 │
 ├── index.html          # Main HTML file with complete portfolio
+├── enterprise.html     # Enterprise terminal portfolio view
+├── personal.html       # Personal terminal portfolio view
 ├── script.js           # JavaScript for SPA navigation and API integrations
 ├── styles.css          # Additional custom styles (if any)
 ├── README.md           # This file
-└── LICENSE             # License file (if applicable)
+└── LICENSE.txt         # License file
 ```
 
 ## 🔧 Customization
@@ -167,3 +169,4 @@ When I'm not building AI solutions, I'm a full-time gaming and music enthusiast!
 ⭐ **If you find this portfolio interesting, feel free to star the repository!**
 
 Built with ❤️ and lots of ☕
+

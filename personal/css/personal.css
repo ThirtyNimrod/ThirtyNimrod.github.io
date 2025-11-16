@@ -1,0 +1,461 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1.5;
+    height: 100%;
+    font-size: 16px;
+}
+
+html {
+    overflow: auto;
+}
+
+body {
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+/* Main Container with Border */
+.main-container {
+    display: block;
+    box-sizing: border-box;
+    height: 100%;
+    border: #ffffff solid 2px;
+    border-radius: 2px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.main-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* WebShell-inspired Header Bars */
+#header-bars {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    position: -webkit-sticky;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    background-color: #000000;
+    z-index: 100;
+}
+
+.bar-1 {
+    height: 36px;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 36px;
+    padding-left: 10px;
+    letter-spacing: 1px;
+}
+
+.bar-2 {
+    height: 4px;
+    background-color: #ffffff;
+    margin-top: 1px;
+}
+
+.bar-3 {
+    height: 3px;
+    background-color: #ffffff;
+    margin-top: 2px;
+}
+
+.bar-4 {
+    height: 2px;
+    background-color: #ffffff;
+    margin-top: 3px;
+}
+
+.bar-5 {
+    height: 1px;
+    background-color: #ffffff;
+    margin-top: 4px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}
+
+/* Terminal Wrapper */
+.terminal-wrapper {
+    padding: 1.25rem;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Output Section */
+.output {
+    margin-bottom: 1rem;
+}
+
+.output > div {
+    margin-bottom: 0.25rem;
+}
+
+/* Typing Animation */
+.output p {
+    animation: typing 0.5s steps(30, end);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+
+.cmd-output {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.cmd-not-found {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+/* Input Line */
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    margin-right: 0.75rem;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.user {
+    color: #ffffff;
+}
+
+.host {
+    color: #ffffff;
+}
+
+.dir {
+    color: #ffffff;
+}
+
+#input {
+    flex-grow: 1;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 1rem;
+    caret-color: #ffffff;
+}
+
+#input::placeholder {
+    color: #666666;
+}
+
+/* Hints */
+.hints {
+    margin-bottom: 0.5rem;
+}
+
+.hints span {
+    margin-right: 0.875rem;
+    color: #ffffff;
+}
+
+/* Command History */
+.history-line {
+    display: flex;
+    margin-bottom: 0.25rem;
+}
+
+.history-prompt {
+    margin-right: 0.75rem;
+}
+
+.history-command {
+    color: #ffffff;
+}
+
+/* Welcome Section */
+.welcome {
+    margin-bottom: 1rem;
+}
+
+.ascii-art {
+    color: #ffffff;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    white-space: pre;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.welcome-text {
+    margin-bottom: 0.5rem;
+}
+
+.separator {
+    margin: 0.5rem 0;
+    color: #666666;
+}
+
+/* Help Command */
+.help-section {
+    margin-bottom: 1rem;
+}
+
+.help-title {
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.command-list {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.cmd-name {
+    color: #ffffff;
+}
+
+.cmd-desc {
+    color: #cccccc;
+}
+
+/* About Section */
+.about-section {
+    margin-bottom: 1rem;
+}
+
+.about-title {
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.about-content {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Projects Section */
+.projects-section {
+    margin-bottom: 1rem;
+}
+
+.project-item {
+    margin-bottom: 1rem;
+}
+
+.project-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.project-desc {
+    color: #cccccc;
+    margin-bottom: 0.25rem;
+}
+
+.project-link {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.project-link:hover {
+    color: #cccccc;
+}
+
+/* Gaming Section */
+.gaming-section {
+    margin-bottom: 1rem;
+}
+
+.game-item {
+    margin-bottom: 0.75rem;
+}
+
+.game-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.game-desc {
+    color: #cccccc;
+}
+
+/* Music Section */
+.music-section {
+    margin-bottom: 1rem;
+}
+
+.genre-item {
+    margin-bottom: 0.5rem;
+}
+
+.genre-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.genre-name {
+    min-width: 120px;
+}
+
+.bar {
+    flex-grow: 1;
+    max-width: 300px;
+    height: 8px;
+    background: #333333;
+    position: relative;
+}
+
+.bar-fill {
+    height: 100%;
+    background: #ffffff;
+}
+
+.genre-percent {
+    color: #cccccc;
+}
+
+/* Social Links */
+.social-section {
+    margin-bottom: 1rem;
+}
+
+.social-item {
+    margin-bottom: 0.5rem;
+}
+
+.social-link {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.social-link:hover {
+    color: #cccccc;
+}
+
+/* Inline Links */
+a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        font-size: 12px;
+        padding: 4px;
+        font-weight: 400;
+    }
+
+    #header-bars {
+        font-size: 14px;
+    }
+
+    .bar-1 {
+        height: 30px;
+        line-height: 30px;
+        padding-left: 8px;
+    }
+
+    .terminal-wrapper {
+        margin-left: 12px;
+        margin-right: 12px;
+        padding: 0.75rem;
+        max-height: calc(100vh - 100px);
+    }
+
+    .input-line {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .prompt {
+        margin-bottom: 0.5rem;
+    }
+
+    #input {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .history-line {
+        flex-direction: column;
+    }
+
+    .history-prompt {
+        margin-bottom: 0.25rem;
+    }
+
+    .ascii-art {
+        font-size: 0.4rem;
+    }
+
+    .command-list {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+    }
+
+    .main-container {
+        border-width: 1px;
+    }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
