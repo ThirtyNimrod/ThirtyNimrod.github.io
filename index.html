@@ -1,218 +1,327 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="day">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divya Pratap Singh Bhadoria | Portfolio</title>
-    <meta name="description" content="Portfolio of Divya Pratap Singh Bhadoria - Choose between Enterprise Professional or Personal Fun profiles.">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #111827, #1f2937);
-            color: #d1d5db;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .profile-card {
-            background: rgba(31, 41, 55, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 2rem;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            max-width: 500px;
-            width: 90%;
-        }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid rgba(56, 189, 248, 0.3);
-            margin: 0 auto 2rem;
-            background: linear-gradient(45deg, #38bdf8, #818cf8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-        .profile-btn {
-            background: linear-gradient(45deg, #38bdf8, #818cf8);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 1rem;
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin: 0.5rem;
-            min-width: 200px;
-        }
-        .profile-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
-        }
-        .enterprise-btn {
-            background: linear-gradient(45deg, #0e76a8, #005582);
-        }
-        .personal-btn {
-            background: linear-gradient(45deg, #ff0080, #7928ca);
-        }
-        .enterprise-btn:hover {
-            box-shadow: 0 10px 25px rgba(14, 118, 168, 0.3);
-        }
-        .personal-btn:hover {
-            box-shadow: 0 10px 25px rgba(255, 0, 128, 0.3);
-        }
-
-        /* Enhanced background effects */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(129, 140, 248, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* Floating animation for profile card */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .profile-card {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Enhanced button hover effects */
-        .profile-btn {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .profile-btn:hover::before {
-            left: 100%;
-        }
-
-        /* Ripple effect */
-        .profile-btn:active {
-            transform: scale(0.98);
-        }
-    </style>
+    <title>Divya Pratap | Applied AI Engineer</title>
+    <meta name="description" content="Divya Pratap Singh Bhadoria — Applied AI Engineer at Accenture specializing in Multi-Agent Systems, LangGraph, GraphRAG and LLMOps.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="profile-card">
-        <div class="profile-img">
-                <img src="https://gravatar.com/avatar/198e8a602b7b98f0b9d3adcfd4625ee5?s=400&d=robohash&r=x" alt="Profile Image" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+    <!-- GLITCH OVERLAY for mode transition -->
+    <div class="glitch-overlay" id="glitch-overlay"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="main-nav">
+        <div class="nav-inner">
+            <div class="nav-logo">30.NIMROD</div>
+            <div class="nav-links" id="nav-links">
+                <!-- Populated per-theme by JS -->
+            </div>
+            <button class="mode-toggle" id="mode-toggle" aria-label="Switch between Day and Night mode">
+                <span class="toggle-icon" id="toggle-icon">🌙</span>
+                <span class="toggle-text day-label">NIGHT RACE</span>
+                <span class="toggle-text night-label">BACK TO DAY</span>
+            </button>
         </div>
-        <h1 class="text-4xl font-black mb-2 text-white">
-            Divya Pratap Singh Bhadoria
-        </h1>
-        <p class="text-lg text-gray-300 mb-8">
-            Data & AI Analyst | Gamer | Music Enthusiast
-        </p>
-        
-        <div class="space-y-4">
-            <a href="enterprise/enterprise.html" class="profile-btn enterprise-btn">
-                🏢 Enterprise Profile
-            </a>
-            <br>
-            <a href="personal/personal.html" class="profile-btn personal-btn">
-                🎮 Personal Profile  
-            </a>
+    </nav>
+
+    <!-- ░░░ DAY VIEW ░░░ -->
+    <div id="day-view" class="view active">
+
+        <!-- HERO -->
+        <section class="day-hero section-pad" id="d-top">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow">DAY // PRO CIRCUIT</span>
+                    <h1 class="hero-title">
+                        Applied AI<br>
+                        <span class="brand-accent">Engineer.</span>
+                    </h1>
+                    <p class="hero-sub">At Accenture's Data &amp; AI practice, I architect multi-agent systems that make the impossible routine. LangGraph, AutoGen, GraphRAG — I live here.</p>
+                    <div class="hero-actions">
+                        <a href="mailto:dpsbhadoriya111@gmail.com" class="btn btn-primary">Get in Touch</a>
+                        <a href="https://www.linkedin.com/in/iamdivyapratap/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
+                    </div>
+                </div>
+                <div class="hero-stats-col">
+                    <div class="kpi-card">
+                        <div class="kpi-number">2.7<span class="kpi-unit">yrs</span></div>
+                        <div class="kpi-label">At Accenture</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-number">7</div>
+                        <div class="kpi-label">Agents in Production Framework</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-number">4</div>
+                        <div class="kpi-label">Certifications</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-number">~30<span class="kpi-unit">%</span></div>
+                        <div class="kpi-label">Token Efficiency Gain</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK -->
+        <section class="section-pad" id="d-work">
+            <div class="container">
+                <div class="section-label">PROFESSIONAL EXPERIENCE</div>
+
+                <div class="timeline">
+                    <div class="timeline-item reveal">
+                        <div class="timeline-meta">
+                            <span class="timeline-co">Accenture · Gurugram</span>
+                            <span class="timeline-date">NOV 2025 — PRESENT</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3 class="timeline-role">Applied AI Engineer <span class="tier-badge">Senior Analyst</span></h3>
+                            <ul class="timeline-list">
+                                <li>Proposed and architected a <strong>metadata-first, LangGraph-based multi-agent framework</strong> that compressed client testing timelines from 2 months to 1.5 weeks.</li>
+                                <li>Designed and owned a <strong>7-agent Testing Pattern</strong> (DDL Interpretation, SQL Generation, Synthetic Data, and more) ensuring component reuse across delivery tracks.</li>
+                                <li>Engineered <strong>containerized Docker deployments</strong> for autonomous agents in AWS/Azure — moved beyond sandboxes into high-security production.</li>
+                                <li>Lead and mentor a <strong>team of 3 developers</strong>, driving adoption of open-source models via Ollama.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-meta">
+                            <span class="timeline-co">Accenture · Gurugram</span>
+                            <span class="timeline-date">AUG 2023 — NOV 2025</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3 class="timeline-role">Applied AI Engineer <span class="tier-badge">Analyst</span></h3>
+                            <ul class="timeline-list">
+                                <li>Pioneered agentic POCs for ETL testing using LangChain, LangGraph and AutoGen — the foundation of what became a company-wide delivery motion.</li>
+                                <li>Led architecture evolution achieving <strong>~30% token efficiency</strong> through advanced prompt design and workflow validation.</li>
+                                <li>Built Streamlit interfaces for real-time stakeholder validation of AI-driven metadata mapping in Alation-to-Collibra migrations.</li>
+                                <li>Developed full-stack testing automation with Selenium + Python for source-to-target migration workflows.</li>
+                                <li>Recognized as <strong>⭐ Star of the Month (Apr 2025)</strong> &amp; <strong>ACE Skills Star (FY25 Q3)</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-meta">
+                            <span class="timeline-co">Indian Oil Corp. Ltd. · Noida</span>
+                            <span class="timeline-date">JAN 2023 — FEB 2023</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3 class="timeline-role">Data Analyst <span class="tier-badge">Intern</span></h3>
+                            <ul class="timeline-list">
+                                <li>SQL-based analytics on enterprise datasets; built Tableau dashboards for executive decision support.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section-pad section-alt" id="d-projects">
+            <div class="container">
+                <div class="section-label">KEY PROJECTS</div>
+                <div class="project-grid">
+                    <div class="project-card reveal">
+                        <div class="project-tag">GraphRAG · Offline AI · LangGraph</div>
+                        <h3 class="project-title">Multi-Agent CAT Prep System</h3>
+                        <p class="project-desc">Migrated from ChromaDB vector search to GraphRAG (NetworkX) for <strong>40% higher retrieval accuracy</strong>. Orchestrated 4 specialized agents with custom sliding-window memory on qwen3.5 (9B). 100% offline via Ollama.</p>
+                    </div>
+                    <div class="project-card reveal">
+                        <div class="project-tag">LangGraph · Azure OpenAI · Fitbit API</div>
+                        <h3 class="project-title">Fitness Bridge AI</h3>
+                        <p class="project-desc">Agentic coaching system merging Hevy workout data with Fitbit sleep/HR metrics. Derives automated Readiness Scores and personalized training advice at zero latency, with SQLite persistence and real-time API sync.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section-pad" id="d-skills">
+            <div class="container">
+                <div class="section-label">TECHNICAL SKILLS</div>
+                <div class="skill-clusters">
+                    <div class="skill-cluster reveal">
+                        <h4 class="cluster-title">AI Frameworks</h4>
+                        <div class="chip-row">
+                            <span class="chip">LangGraph</span>
+                            <span class="chip">AutoGen</span>
+                            <span class="chip">LangChain</span>
+                            <span class="chip">GraphRAG</span>
+                            <span class="chip">RAG</span>
+                        </div>
+                    </div>
+                    <div class="skill-cluster reveal">
+                        <h4 class="cluster-title">LLMOps &amp; DevOps</h4>
+                        <div class="chip-row">
+                            <span class="chip">Docker</span>
+                            <span class="chip">AWS</span>
+                            <span class="chip">Azure AI</span>
+                            <span class="chip">Vertex AI</span>
+                            <span class="chip">Ollama</span>
+                        </div>
+                    </div>
+                    <div class="skill-cluster reveal">
+                        <h4 class="cluster-title">Languages &amp; Tools</h4>
+                        <div class="chip-row">
+                            <span class="chip">Python</span>
+                            <span class="chip">SQL</span>
+                            <span class="chip">Selenium</span>
+                            <span class="chip">Streamlit</span>
+                            <span class="chip">REST APIs</span>
+                        </div>
+                    </div>
+                    <div class="skill-cluster reveal">
+                        <h4 class="cluster-title">Data Ecosystems</h4>
+                        <div class="chip-row">
+                            <span class="chip">Neo4j</span>
+                            <span class="chip">Snowflake</span>
+                            <span class="chip">PostgreSQL</span>
+                            <span class="chip">Redis</span>
+                            <span class="chip">Collibra</span>
+                            <span class="chip">Alation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTS -->
+        <section class="section-pad section-alt" id="d-certs">
+            <div class="container">
+                <div class="section-label">CERTIFICATIONS</div>
+                <div class="cert-grid">
+                    <div class="cert-card reveal">
+                        <div class="cert-issuer">Microsoft</div>
+                        <div class="cert-name">Azure AI Engineer Associate</div>
+                    </div>
+                    <div class="cert-card reveal">
+                        <div class="cert-issuer">Google</div>
+                        <div class="cert-name">Professional Data Engineer</div>
+                    </div>
+                    <div class="cert-card reveal">
+                        <div class="cert-issuer">Neo4j</div>
+                        <div class="cert-name">Certified Professional</div>
+                    </div>
+                    <div class="cert-card reveal">
+                        <div class="cert-issuer">Oracle Cloud</div>
+                        <div class="cert-name">OCI 2025 GenAI Professional</div>
+                    </div>
+                </div>
+                <p class="cert-link">
+                    <a href="https://www.credly.com/users/thirtynimrod/badges" target="_blank" rel="noopener">View all badges on Credly →</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section-pad" id="d-edu">
+            <div class="container">
+                <div class="section-label">EDUCATION</div>
+                <div class="edu-card reveal">
+                    <div class="edu-degree">B.Tech, Computer Science</div>
+                    <div class="edu-school">Vellore Institute of Technology, Bhopal</div>
+                    <div class="edu-meta">2019 — 2023 &nbsp;·&nbsp; CGPA: 7.77</div>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /day-view -->
+
+
+    <!-- ░░░ NIGHT VIEW ░░░ -->
+    <div id="night-view" class="view">
+
+        <!-- NIGHT HERO -->
+        <section class="night-hero section-pad" id="n-top">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow night-eyebrow">NIGHT // UNDERGROUND</span>
+                    <h1 class="hero-title">
+                        Digital<br>
+                        <span class="neon-accent">Playground.</span>
+                    </h1>
+                    <p class="hero-sub">Code until midnight. Then: queue up a playlist, load into a race, and leave work at the login screen. This is the other side.</p>
+                    <div class="hero-actions">
+                        <a href="https://steamcommunity.com/id/thirtynimrod/" target="_blank" rel="noopener" class="btn btn-neon">Steam Profile →</a>
+                    </div>
+                </div>
+                <div class="night-idents">
+                    <div class="ident-card">
+                        <div class="ident-icon">🎮</div>
+                        <div class="ident-label">CURRENTLY IN</div>
+                        <div class="ident-value">thirtynimrod</div>
+                        <div class="ident-sub">Steam</div>
+                    </div>
+                    <div class="ident-card">
+                        <div class="ident-icon">🎵</div>
+                        <div class="ident-label">LISTENING AS</div>
+                        <div class="ident-value">iamdivyapratap</div>
+                        <div class="ident-sub">Spotify</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIBE -->
+        <section class="section-pad" id="n-vibe">
+            <div class="container">
+                <div class="section-label night-section-label">THE VIBE</div>
+                <div class="vibe-grid">
+                    <div class="vibe-card reveal-night">
+                        <div class="vibe-emoji">🎮</div>
+                        <h3 class="vibe-title">Gaming</h3>
+                        <p class="vibe-desc">Strategy, racing, survival. When the session's good, the playlist can't keep up. Find me on Steam as <a href="https://steamcommunity.com/id/thirtynimrod/" target="_blank" rel="noopener" class="neon-link">thirtynimrod</a>.</p>
+                    </div>
+                    <div class="vibe-card reveal-night">
+                        <div class="vibe-emoji">🎵</div>
+                        <h3 class="vibe-title">Music</h3>
+                        <p class="vibe-desc">The playlist changes with the complexity of the problem. Debugging? Lo-fi. Deploying to prod? Something loud. Spotify: <a href="https://open.spotify.com/user/iamdivyapratap" target="_blank" rel="noopener" class="neon-link">iamdivyapratap</a>.</p>
+                    </div>
+                    <div class="vibe-card reveal-night">
+                        <div class="vibe-emoji">🤖</div>
+                        <h3 class="vibe-title">Tinkering</h3>
+                        <p class="vibe-desc">The side projects don't really stop. CAT prep agents, fitness coaches, personal dashboards — if it's an AI problem I haven't solved yet, it's on the weekend backlog.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUOTE BLOCK -->
+        <section class="section-pad section-alt-night" id="n-quote">
+            <div class="container center-col">
+                <blockquote class="night-quote reveal-night">
+                    "Code by day, game by night, music always."
+                </blockquote>
+                <p class="night-quote-sub">— the standard operating procedure</p>
+            </div>
+        </section>
+
+    </div><!-- /night-view -->
+
+
+    <!-- FOOTER (shared) -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <div class="footer-name">Divya Pratap Singh Bhadoria</div>
+                <div class="footer-role">Applied AI Engineer · Accenture</div>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/iamdivyapratap/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/ThirtyNimrod" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:dpsbhadoriya111@gmail.com">Email</a>
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <script>
-        $(document).ready(function() {
-            // Enhanced button click effects
-            $('.profile-btn').on('click', function(e) {
-                var $btn = $(this);
-                
-                // Create ripple effect
-                var $ripple = $('<span class="ripple-effect"></span>');
-                var x = e.pageX - $btn.offset().left;
-                var y = e.pageY - $btn.offset().top;
-                
-                $ripple.css({
-                    left: x,
-                    top: y
-                });
-                
-                $btn.append($ripple);
-                
-                setTimeout(function() {
-                    $ripple.remove();
-                }, 600);
-            });
-
-            // Smooth entrance animation
-            $('.profile-card').css({
-                opacity: 0,
-                transform: 'translateY(20px)'
-            }).animate({
-                opacity: 1,
-                transform: 'translateY(0)'
-            }, 800);
-
-            // Profile image hover effect
-            $('.profile-img').hover(
-                function() {
-                    $(this).css('transform', 'scale(1.05)');
-                },
-                function() {
-                    $(this).css('transform', 'scale(1)');
-                }
-            );
-        });
-
-        // Add CSS for ripple effect
-        const style = document.createElement('style');
-        style.textContent = `
-            .ripple-effect {
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.6);
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-            }
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.append(style);
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
-
