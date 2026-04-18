@@ -1,172 +1,95 @@
-# ThirtyNimrod.github.io
+# 30.NIMROD // Applied AI Portfolio
 
 [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fthirtynimrod.github.io)](https://thirtynimrod.github.io)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-success)](https://thirtynimrod.github.io)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.txt)
 
-## 🌟 About
+## 🏁 Overview
 
-Welcome to my personal portfolio website! This is the source code for my GitHub Pages site where I showcase my professional journey as a **Data Engineering, Management & Governance Analyst at Accenture**, specializing in AI-powered solutions and automated testing.
+Welcome to my portfolio. This is a high-aesthetic, dual-themed personal website inspired by the **Need for Speed Heat** UI. It serves as a living document of my work as an Applied AI Engineer, showcasing the intersection of enterprise-grade AI architecture and digital lifestyle.
 
-**🔗 Live Site:** [https://thirtynimrod.github.io](https://thirtynimrod.github.io)
+**🔗 Live Site:** [thirtynimrod.github.io](https://thirtynimrod.github.io)
 
-## 👨‍💻 About Me
+---
 
-I'm **Divya Pratap Singh Bhadoria**, a passionate technologist based in Gwalior, India, with expertise in:
+## 🌓 The Dual-Theme Experience
 
-- 🤖 **AI Agent Development** - Building cutting-edge AI-powered solutions
-- 🔧 **Testing Automation** - Creating efficient automated testing systems  
-- 📊 **Data Engineering & Governance** - Transforming complex data challenges into intuitive systems
-- 🎯 **Generative AI Technologies** - Pushing the boundaries of AI applications
+The site features two distinct modes that transform the entire visual layout and focus:
 
-### 🏆 Recognition
+### ☀️ DAY // PRO CIRCUIT
+- **Focus:** Professional career, technical certifications, and enterprise experience.
+- **Vibe:** Clean, high-impact circuit aesthetics.
+- **Key Sections:** Professional Experience, Key Projects, Technical Skills, and Certifications.
 
-- **"Star of the Month"** (April 2025)
-- **"ACE Award"** (FY25-Q3)
+### 🌙 NIGHT // UNDERGROUND
+- **Focus:** Personal interests, gaming, and the "behind the scenes" of a developer's life.
+- **Vibe:** Neon-soaked underground racing aesthetics.
+- **Key Sections:** Gaming profile, music vibes, and personal tinkering projects.
 
-## 🛠️ Tech Stack
+---
 
-### Languages
+## 👨‍💻 Tech Stack & Architecture
 
-- **Python** - Primary development language
-- **Java** - Enterprise applications
-- **JavaScript** - Frontend development
-- **HTML/CSS** - Web development
+This portfolio is built with focus on performance, aesthetics, and simplicity:
 
-### AI/ML/GenAI
+- **Core:** Semantic HTML5, Vanilla JavaScript (ES6+).
+- **Styling:** Custom Vanilla CSS (No frameworks) utilizing CSS Variables, Grid, and Flexbox.
+- **Aesthetics:** Dynamic background textures, glitch transitions, and Intersection Observer for reveal animations.
+- **Responsiveness:** Fully fluid layouts tailored for both desktop and mobile devices.
 
-- **LangChain** - AI application framework
-- **LangGraph** - Graph-based AI workflows
-- **Autogen** - Multi-agent conversations
-- **Ollama** - Local LLM deployment
-- **Generative AI** - Various AI models and applications
+---
 
-### Web Development & Automation
+## 🚀 Professional Profile
 
-- **Streamlit** - Data app development
-- **Full-Stack Development** - End-to-end web solutions
-- **Selenium** - Web automation testing
+I am **Divya Pratap Singh Bhadoria**, an Applied AI Engineer at **Accenture**. I specialize in architecting multi-agent systems and leveraging GraphRAG to solve complex data challenges.
 
-### Data Governance & Databases
+### 🛠️ Core Toolkit
+- **AI Frameworks:** LangGraph, AutoGen, LangChain, GraphRAG.
+- **LLMOps:** Docker, AWS, Azure AI, Vertex AI, Ollama.
+- **Data & Dev:** Python, SQL, Neo4j, Snowflake, Selenium.
 
-- **Collibra** - Data governance platform
-- **Alation** - Data catalog and governance
-- **SQL** - Database management
-
-## 🏗️ Website Features
-
-This portfolio website includes:
-
-- **🎨 Modern UI/UX** - Built with Tailwind CSS and custom styling
-- **📱 Responsive Design** - Optimized for all devices
-- **⚡ Single Page Application** - Smooth navigation with JavaScript
-- **🎮 Gaming Integration** - Steam profile stats
-- **🎵 Music Integration** - Spotify activity display
-- **📊 GitHub Stats** - Live GitHub activity visualization
-- **✍️ Medium Articles** - Integration with Medium blog posts
-- **🌓 Profile Switching** - Toggle between Enterprise and Personal views
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- A modern web browser
-- Basic understanding of HTML, CSS, and JavaScript
-
-### Local Development
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/ThirtyNimrod/ThirtyNimrod.github.io.git
-   cd ThirtyNimrod.github.io
-   ```
-
-2. **Open locally**
-   Simply open `index.html` in your web browser, or use a local server:
-
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx serve .
-   ```
-
-3. **View the site**
-   Navigate to `http://localhost:8000` (or the port shown)
+---
 
 ## 📁 Project Structure
 
 ```text
 ThirtyNimrod.github.io/
 │
-├── index.html          # Main HTML file with complete portfolio
-├── enterprise.html     # Enterprise terminal portfolio view
-├── personal.html       # Personal terminal portfolio view
-├── script.js           # JavaScript for SPA navigation and API integrations
-├── styles.css          # Additional custom styles (if any)
-├── README.md           # This file
-└── LICENSE.txt         # License file
+├── index.html      # Main entry point with Day/Night views
+├── style.css       # Custom design system & animations
+├── script.js       # Theme switching & interaction logic
+├── assets/         # High-resolution background assets
+├── .gitignore      # Git exclusions
+├── LICENSE.txt     # MIT License
+└── README.md       # Project documentation
 ```
 
-## 🔧 Customization
+---
 
-To customize this portfolio for your own use:
+## 🔧 Local Development
 
-1. **Update Personal Information**
-   - Modify the content in `index.html`
-   - Change social media links and contact information
-   - Update professional background and skills
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ThirtyNimrod/ThirtyNimrod.github.io.git
+   cd ThirtyNimrod.github.io
+   ```
 
-2. **Integrate Your APIs**
-   - Replace GitHub username in GitHub Stats API calls
-   - Update Steam profile ID for gaming stats
-   - Change Spotify profile ID for music integration
-   - Modify Medium RSS feed URLs
+2. **Run locally:**
+   Simply open `index.html` in your browser or use a simple HTTP server:
+   ```bash
+   # Using Python
+   python -m http.server 8000
+   ```
 
-3. **Styling**
-   - Customize colors, fonts, and layout in the CSS sections
-   - The site uses Tailwind CSS for rapid styling
-
-## 🌐 Live Integrations
-
-The website fetches live data from:
-
-- **GitHub API** - For repository stats and activity
-- **Steam API** - For gaming profile and statistics  
-- **Spotify API** - For current music activity
-- **Medium RSS** - For latest blog posts
-- **RSS2JSON** - For parsing Medium RSS feeds
-
-## 🤝 Contributing
-
-While this is a personal portfolio, I welcome suggestions and improvements:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/improvement`)
-3. Commit your changes (`git commit -am 'Add some improvement'`)
-4. Push to the branch (`git push origin feature/improvement`)
-5. Create a Pull Request
+---
 
 ## 📫 Connect With Me
 
 - **LinkedIn:** [iamdivyapratap](https://www.linkedin.com/in/iamdivyapratap/)
-- **Email:** [thirtynimrod@outlook.com](mailto:thirtynimrod@outlook.com)
-- **Medium:** [@ThirtyNimrod](https://medium.com/@ThirtyNimrod) | [@nimrodwrites](https://medium.com/@nimrodwrites)
+- **Email:** [dpsbhadoriya111@gmail.com](mailto:dpsbhadoriya111@gmail.com)
+- **GitHub:** [ThirtyNimrod](https://github.com/ThirtyNimrod)
 - **Steam:** [thirtynimrod](https://steamcommunity.com/id/thirtynimrod/)
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🎮🎵 Fun Fact
-
-When I'm not building AI solutions, I'm a full-time gaming and music enthusiast! Check out my Steam and Spotify activity on the website.
 
 ---
 
-⭐ **If you find this portfolio interesting, feel free to star the repository!**
-
-Built with ❤️ and lots of ☕
-
+Built with ❤️ by **30.NIMROD**
