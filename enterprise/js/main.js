@@ -2,170 +2,181 @@
 // =============================
 
 // Smooth Scrolling Navigation
-$(document).ready(function() {
-    // Smooth scroll to tab sections when clicking tab buttons
-    $('.accenture-tab').on('click', function(e) {
-        const tabName = $(this).attr('data-tab');
-        const targetSection = $(`[data-section="${tabName}"]`);
+$(document).ready(function () {
+  // Smooth scroll to tab container when clicking tab buttons to ensure the new content is visible
+  $(".accenture-tab").on("click", function (e) {
+    const tabContainer = $(this).closest(".enterprise-card");
 
-        if (targetSection.length) {
-            e.preventDefault();
-            $('html, body').animate({
-                scrollTop: targetSection.offset().top - 120 // Offset for fixed nav with some padding
-            }, 1000, 'easeInOutCubic');
-        }
-    });
+    if (tabContainer.length) {
+      e.preventDefault();
 
-    // Add scroll-based effects
-    $(window).on('scroll', function() {
-        const scrollTop = $(this).scrollTop();
+      const offsetTop = tabContainer.offset().top - 100; // Offset for fixed nav with padding
 
-        // Add scrolled class to nav for background change
-        if (scrollTop > 50) {
-            $('nav[data-nav]').addClass('nav-scrolled');
-        } else {
-            $('nav[data-nav]').removeClass('nav-scrolled');
-        }
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  });
 
-        // Add fade-in effects to sections with staggered timing
-        $('[data-section]').each(function(index) {
-            const elementTop = $(this).offset().top;
-            const elementBottom = elementTop + $(this).outerHeight();
-            const viewportTop = scrollTop;
-            const viewportBottom = viewportTop + $(window).height();
+  // Add scroll-based effects
+  $(window).on("scroll", function () {
+    const scrollTop = $(this).scrollTop();
 
-            if (elementBottom > viewportTop && elementTop < viewportBottom) {
-                // Add staggered delay for multiple sections
-                setTimeout(() => {
-                    $(this).addClass('in-view');
-                }, index * 100);
-            }
-        });
-    });
+    // Add scrolled class to nav for background change
+    if (scrollTop > 50) {
+      $("nav[data-nav]").addClass("nav-scrolled");
+    } else {
+      $("nav[data-nav]").removeClass("nav-scrolled");
+    }
 
-    // Add click ripple effect to buttons
-    $('.accenture-tab, .accenture-button-primary, .accenture-button-secondary').on('click', function(e) {
-        const button = $(this);
-        const ripple = $('<span class="ripple-effect"></span>');
+    // Add fade-in effects to sections with staggered timing
+    $("[data-section]").each(function (index) {
+      const elementTop = $(this).offset().top;
+      const elementBottom = elementTop + $(this).outerHeight();
+      const viewportTop = scrollTop;
+      const viewportBottom = viewportTop + $(window).height();
 
-        const x = e.pageX - button.offset().left;
-        const y = e.pageY - button.offset().top;
-
-        ripple.css({
-            left: x,
-            top: y
-        });
-
-        button.append(ripple);
-
+      if (elementBottom > viewportTop && elementTop < viewportBottom) {
+        // Add staggered delay for multiple sections
         setTimeout(() => {
-            ripple.remove();
-        }, 600);
+          $(this).addClass("in-view");
+        }, index * 100);
+      }
+    });
+  });
+
+  // Add click ripple effect to buttons
+  $(
+    ".accenture-tab, .accenture-button-primary, .accenture-button-secondary",
+  ).on("click", function (e) {
+    const button = $(this);
+    const ripple = $('<span class="ripple-effect"></span>');
+
+    const x = e.pageX - button.offset().left;
+    const y = e.pageY - button.offset().top;
+
+    ripple.css({
+      left: x,
+      top: y,
     });
 
-    // Enhanced theme toggle with smooth transition
-    $('#theme-toggle').on('click', function() {
-        $('body').addClass('theme-transitioning');
-        setTimeout(() => {
-            $('body').removeClass('theme-transitioning');
-        }, 300);
-    });
+    button.append(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  });
+
+  // Enhanced theme toggle with smooth transition
+  $("#theme-toggle").on("click", function () {
+    $("body").addClass("theme-transitioning");
+    setTimeout(() => {
+      $("body").removeClass("theme-transitioning");
+    }, 300);
+  });
 });
 
 // Theme toggle functionality
-const themeToggle = document.getElementById('theme-toggle');
+const themeToggle = document.getElementById("theme-toggle");
 const html = document.documentElement;
 
-themeToggle.addEventListener('click', () => {
-    if (html.getAttribute('data-theme') === 'dark') {
-        html.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-    } else {
-        html.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    }
+themeToggle.addEventListener("click", () => {
+  if (html.getAttribute("data-theme") === "dark") {
+    html.removeAttribute("data-theme");
+    localStorage.setItem("theme", "light");
+  } else {
+    html.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  }
 });
 
 // Load saved theme
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    html.setAttribute('data-theme', 'dark');
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  html.setAttribute("data-theme", "dark");
 }
 
 // Enhanced Tab functionality with Liquid Glass effects
-const tabButtons = document.querySelectorAll('.accenture-tab');
-const tabContents = document.querySelectorAll('.tab-content');
+const tabButtons = document.querySelectorAll(".accenture-tab");
+const tabContents = document.querySelectorAll(".tab-content");
 
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const tabName = button.getAttribute('data-tab');
+tabButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const tabName = button.getAttribute("data-tab");
 
-        // If already active, do nothing
-        if (button.classList.contains('active')) return;
+    // If already active, do nothing
+    if (button.classList.contains("active")) return;
 
-        // Add activating class for morph animation
-        button.classList.add('activating');
+    // Add activating class for morph animation
+    button.classList.add("activating");
 
-        // Remove activating class after animation
-        setTimeout(() => {
-            button.classList.remove('activating');
-        }, 600);
+    // Remove activating class after animation
+    setTimeout(() => {
+      button.classList.remove("activating");
+    }, 600);
 
-        // Remove active class from all buttons with smooth transition
-        tabButtons.forEach(btn => {
-            if (btn !== button) {
-                btn.classList.remove('active');
-            }
-        });
-
-        // Add active class to clicked button
-        button.classList.add('active');
-
-        // Hide all tab contents with fade effect
-        tabContents.forEach(content => {
-            if (!content.classList.contains('hidden')) {
-                content.style.opacity = '0';
-                content.style.transform = 'translateY(10px)';
-                setTimeout(() => {
-                    content.classList.add('hidden');
-                    content.style.opacity = '';
-                    content.style.transform = '';
-                }, 200);
-            }
-        });
-
-        // Show selected tab content with smooth animation
-        setTimeout(() => {
-            const targetContent = document.getElementById(tabName + '-tab');
-            targetContent.classList.remove('hidden');
-            targetContent.classList.add('animate-in');
-        }, 200);
+    // Remove active class from all buttons with smooth transition
+    tabButtons.forEach((btn) => {
+      if (btn !== button) {
+        btn.classList.remove("active");
+      }
     });
+
+    // Add active class to clicked button
+    button.classList.add("active");
+
+    // Hide all tab contents with fade effect
+    tabContents.forEach((content) => {
+      if (!content.classList.contains("hidden")) {
+        content.style.opacity = "0";
+        content.style.transform = "translateY(10px)";
+        // Reduce the timeout for a snappier transition
+        setTimeout(() => {
+          content.classList.add("hidden");
+          content.style.opacity = "";
+          content.style.transform = "";
+        }, 150);
+      }
+    });
+
+    // Show selected tab content with smooth animation
+    setTimeout(() => {
+      const targetContent = document.getElementById(tabName + "-tab");
+      targetContent.classList.remove("hidden");
+      // Force reflow to ensure animation restarts perfectly
+      targetContent.classList.remove("animate-in");
+      void targetContent.offsetWidth;
+      targetContent.classList.add("animate-in");
+    }, 150);
+  });
 });
 
 // Basic analytics - visitor counter
 // Using a simple localStorage-based counter for demo
 // In production, you'd use Google Analytics or similar
-let visitorCount = localStorage.getItem('visitorCount') || 0;
+let visitorCount = localStorage.getItem("visitorCount") || 0;
 visitorCount = parseInt(visitorCount) + 1;
-localStorage.setItem('visitorCount', visitorCount);
+localStorage.setItem("visitorCount", visitorCount);
 
 // Display visitor count (you can add this to a dashboard section later)
 console.log(`Portfolio visitors: ${visitorCount}`);
 
 // Fetch Medium articles for enterprise (tech-focused)
 async function fetchEnterpriseArticles() {
-    try {
-        const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@ThirtyNimrod');
-        const data = await response.json();
-        const container = document.getElementById('tech-articles-container');
+  try {
+    const response = await fetch(
+      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@ThirtyNimrod",
+    );
+    const data = await response.json();
+    const container = document.getElementById("tech-articles-container");
 
-        if (data.items && data.items.length > 0) {
-            container.innerHTML = '';
-            data.items.slice(0, 6).forEach(item => {
-                const articleDiv = document.createElement('div');
-                articleDiv.className = 'article-card';
-                articleDiv.innerHTML = `
+    if (data.items && data.items.length > 0) {
+      container.innerHTML = "";
+      data.items.slice(0, 6).forEach((item) => {
+        const articleDiv = document.createElement("div");
+        articleDiv.className = "article-card";
+        articleDiv.innerHTML = `
                     <h3 class="font-semibold mb-2">
                         <a href="${item.link}" target="_blank" class="accenture-link">
                             ${item.title}
@@ -175,37 +186,42 @@ async function fetchEnterpriseArticles() {
                         ${new Date(item.pubDate).toLocaleDateString()}
                     </p>
                     <p class="text-gray-700 text-sm">
-                        ${item.description.replace(/<[^>]*>/g, '').substring(0, 150)}...
+                        ${item.description.replace(/<[^>]*>/g, "").substring(0, 150)}...
                     </p>
                 `;
-                container.appendChild(articleDiv);
-            });
-        } else {
-            container.innerHTML = '<div class="text-center text-gray-500 py-8">No technical articles found. Update the Medium RSS URL in the script.</div>';
-        }
-    } catch (error) {
-        document.getElementById('tech-articles-container').innerHTML =
-            '<div class="text-center text-gray-500 py-8">Failed to load technical articles. Please check the Medium RSS URL.</div>';
+        container.appendChild(articleDiv);
+      });
+    } else {
+      container.innerHTML =
+        '<div class="text-center text-gray-500 py-8">No technical articles found. Update the Medium RSS URL in the script.</div>';
     }
+  } catch (error) {
+    document.getElementById("tech-articles-container").innerHTML =
+      '<div class="text-center text-gray-500 py-8">Failed to load technical articles. Please check the Medium RSS URL.</div>';
+  }
 }
 
 // Load articles when the tech articles tab is clicked
-document.querySelector('[data-tab="tech-articles"]').addEventListener('click', () => {
+document
+  .querySelector('[data-tab="tech-articles"]')
+  .addEventListener("click", () => {
     setTimeout(fetchEnterpriseArticles, 100);
-});
+  });
 
 // Contact form handling
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const name = document.getElementById('contact-name').value;
-    const email = document.getElementById('contact-email').value;
-    const subject = document.getElementById('contact-subject').value;
-    const message = document.getElementById('contact-message').value;
+    const name = document.getElementById("contact-name").value;
+    const email = document.getElementById("contact-email").value;
+    const subject = document.getElementById("contact-subject").value;
+    const message = document.getElementById("contact-message").value;
 
     // Create mailto link with form data
     const mailtoLink = `mailto:thirtynimrod@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     )}`;
 
     // Open email client
@@ -215,26 +231,30 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     this.reset();
 
     // Show success message (you could enhance this with a proper modal)
-    alert('Thank you for your message! Your email client has been opened with the pre-filled information.');
-});
+    alert(
+      "Thank you for your message! Your email client has been opened with the pre-filled information.",
+    );
+  });
 
 // Resume download functionality
-document.getElementById('download-resume').addEventListener('click', function() {
+document
+  .getElementById("download-resume")
+  .addEventListener("click", function () {
     const resumeContent = generateResumeHTML();
 
     // Create a new window with the resume
-    const resumeWindow = window.open('', '_blank');
+    const resumeWindow = window.open("", "_blank");
     resumeWindow.document.write(resumeContent);
     resumeWindow.document.close();
 
     // Trigger print dialog for PDF saving
     setTimeout(() => {
-        resumeWindow.print();
+      resumeWindow.print();
     }, 500);
-});
+  });
 
 function generateResumeHTML() {
-    return `
+  return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
